@@ -1,11 +1,17 @@
 version: 2
 
 
-models: bankless
-    - name: user_analytics
-      columns: 
-        - name: discord_user_id
-          tests:
-            - unique
-            - not_null
+models:
+  - name: user_analytics
+    description: User information denormalized for analytics, the table contains one record per user
+    columns: 
+      - name: discord_user_id
+        description: Unique identification number for a user
+        tests:
+          - unique
+          - not_null
+      - name: username
+        description: Latest user name tagged to discord_user_id
+      - name: is_guild_member
+        description: "{{ doc('is_guild_member') }}"
 
