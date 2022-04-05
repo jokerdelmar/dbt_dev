@@ -35,8 +35,10 @@ models:
   bankless:
     marts:
       core:
-        +matrialized: table
+        +materialized: table
     staging:
-      +matrialized: view
+      +materialized: view
+    testing:
+      +materialized: view
       
 
