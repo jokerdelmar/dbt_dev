@@ -97,8 +97,8 @@ sum(case when t.from_user_id = du.discord_user_id then t.amount else 0 end) as t
 max(case when t.to_user_id = du.discord_user_id then t.timestamp end) as latest_bank_received_ts,
 max(case when t.from_user_id = du.discord_user_id then t.timestamp end) as latest_bank_sent_ts
 from discord_user du
-join latest_username lu on du.discord_user_id = lu.discord_user_id
-join role_list rl on du.discord_user_id = rl.discord_user_id
+left join latest_username lu on du.discord_user_id = lu.discord_user_id
+left join role_list rl on du.discord_user_id = rl.discord_user_id
 left join tipping t on (t.to_user_id  = du.discord_user_id or t.from_user_id  = du.discord_user_id) -- tipping data
 left join user_messages um on du.discord_user_id  = um.discord_user_id
 left join user_voice_chat uvc on du.discord_user_id = uvc.discord_user_id

@@ -6,6 +6,6 @@ target as (
     select distinct discord_user_id 
     from {{ ref('user_analytics')}}
 )
-select count(distinct source.discord_user_id) as count_missing_user
+select distinct source.discord_user_id
 from source
 where source.discord_user_id not in (select target.discord_user_id from target)
