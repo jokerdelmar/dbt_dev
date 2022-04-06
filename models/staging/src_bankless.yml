@@ -1,0 +1,16 @@
+version: 2
+
+
+sources:
+      - name: bankless
+        database: dao_dash
+        schema: public
+        tables:
+            - name: discord_user
+            - name: discord_user_roles
+            - name: discord_roles
+            - name: tipping
+            - name: discord_messages
+            - name: coordinape_nodes
+            - name: coordinape_edges
+            - name: voice_states
