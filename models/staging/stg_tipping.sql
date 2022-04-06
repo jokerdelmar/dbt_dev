@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 /*CTE to capture Tipping information*/
 select
 t.timestamp,

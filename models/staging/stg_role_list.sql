@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 /* CTE to list out all user roles tagged to user*/
 select
  du.discord_user_id,

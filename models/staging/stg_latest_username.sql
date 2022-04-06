@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 /*CTE for fetching the latest username and server joined timestamp*/
 select
 du.discord_user_id,

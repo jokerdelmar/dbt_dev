@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 /* CTE to capture user touchpoints*/
 select
 du.discord_user_id,

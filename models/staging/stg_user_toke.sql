@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 /* CTE to capture coordinape TOKE transactions*/
 select du.discord_user_id,
 sum(case when ce.recipient_id::int = cn.coordinape_user_id then ce.tokens  else 0 end) as total_toke_received,

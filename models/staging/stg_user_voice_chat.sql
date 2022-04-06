@@ -1,3 +1,7 @@
+{{
+    config(tags=["daily"])
+}}
+
 /*  CTE for Discord voice channel */
 select
 vs.user_id as discord_user_id,

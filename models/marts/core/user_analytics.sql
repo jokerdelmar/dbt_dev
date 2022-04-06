@@ -1,3 +1,8 @@
+{{
+    config(tags=["daily"])
+}}
+
+
 with
 role_list as (
     select * from {{ ref('stg_role_list')}}
