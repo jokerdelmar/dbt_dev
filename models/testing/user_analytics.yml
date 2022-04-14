@@ -8,8 +8,10 @@ models:
       - name: discord_user_id
         description: Unique identification number for a user
         tests:
-          - unique
-          - not_null
+          - unique:
+              tags: ["daily"]
+          - not_null:
+              tags: ["daily"]
       - name: username
         description: Latest user name tagged to discord_user_id
       - name: is_guild_member
