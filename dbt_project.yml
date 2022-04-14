@@ -38,7 +38,9 @@ models:
         +materialized: table
     staging:
       +materialized: view
+      bind: false
     testing:
       +materialized: view
+      bind: false
       
 
