@@ -14,3 +14,10 @@ sources:
             - name: coordinape_nodes
             - name: coordinape_edges
             - name: voice_states
+            - name: discord_raw_jsons
+              tests:
+                - dbt_expectations.expect_row_values_to_have_data_for_every_n_datepart:
+                    tags: ["hourly"]
+                    date_col: inserted_at
+                    date_part: hour
+                    row_condition: "inserted_at >= current_date - 2"
