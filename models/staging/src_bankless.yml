@@ -25,4 +25,4 @@ sources:
                     date_col: inserted_at
                     date_part: hour
                     row_condition: "inserted_at >= {{ dbt_date.n_days_ago(2, dbt_date.today()) }}"
-                    #test_start_date: "cast({{ dbt_date.n_days_ago(2, dbt_date.today())}} as timestamp without timezone)"
+                    test_start_date: "{{ modules.datetime.date.today() - modules.datetime.timedelta(2)}}"
