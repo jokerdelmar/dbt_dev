@@ -42,6 +42,13 @@ models:
       bind: false
     testing:
       +materialized: view
-      bind: false
+      bind: false 
       
 
+vars:
+  'dbt_date:time_zone': 'UTC'
+
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['dbt_dev', 'dbt_expectations', 'dbt_date', 'dbt_utils']  # Search for bads override first

@@ -15,9 +15,14 @@ sources:
             - name: coordinape_edges
             - name: voice_states
             - name: discord_raw_jsons
+              freshness:
+                error_after: {count: 1, period: hour}
+                filter: inserted_at >= current_date - 2 #{{ dbt_date.n_days_ago(2, dbt_date.today()) }}
+              loaded_at_field: inserted_at
               tests:
                 - dbt_expectations.expect_row_values_to_have_data_for_every_n_datepart:
                     tags: ["hourly"]
                     date_col: inserted_at
                     date_part: hour
-                    row_condition: "inserted_at >= current_date - 2"
+                    row_condition: "inserted_at >= {{ dbt_date.n_days_ago(2, dbt_date.today()) }}"
+                    #test_start_date: "cast({{ dbt_date.n_days_ago(2, dbt_date.today())}} as timestamp without timezone)"
