@@ -37,6 +37,7 @@ models:
       core:
         +materialized: table
         +schema: public
+        +post-hook: 'grant select on {{ this }} to dao_dash_user'
     staging:
       +materialized: view
       bind: false
